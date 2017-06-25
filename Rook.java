@@ -4,7 +4,7 @@ public class Rook extends Piece{
         }
         public boolean canMove(int[] endpos, boolean print, boolean check){
             if (this.isYours(endpos) || this.dead) return false;
-            if(inCheck(this.owner, this, endpos)){ if(print) System.out.println("That move would put you in check!"); return false;}
+            if(check && inCheck(this.owner, this, endpos)){ if(print) System.out.println("That move would put you in check!"); return false;}
             if(this.pos[0] != endpos[0] && this.pos[1] != endpos[1]){
                       if (print)
                       System.out.println("The rook you are trying to move isn't moving in a straight line");
@@ -77,11 +77,11 @@ public class Rook extends Piece{
     public boolean movePossible(){
         for(int r = -7; r + this.pos[0] <= 7; r++){
                 if(this.pos[0] + r >=0)
-                    if(this.canMove(new int[]{this.pos[0]+ r, this.pos[1]}, false)) return true;
+                    if(this.canMove(new int[]{this.pos[0]+ r, this.pos[1]}, false, true)) return true;
             }
         for(int c = -7; c + this.pos[1] <= 7; c++){
                 if(this.pos[1] + c >=0)
-                    if(this.canMove(new int[]{this.pos[0], this.pos[1]+c}, false)) return true;
+                    if(this.canMove(new int[]{this.pos[0], this.pos[1]+c}, false, true)) return true;
             }
         return false;
     }

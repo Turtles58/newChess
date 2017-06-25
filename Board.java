@@ -57,7 +57,7 @@ public class Board
                 {
                     if (selectedPiece.pos[0] == row && selectedPiece.pos[1] == col)
                         System.out.print("[" + board[row][col] + "]");
-                    else if (selectedPiece.canMove(new int[]{row, col}, false) && !Piece.inCheck(selectedPiece.owner, selectedPiece, new int[]{row, col}))
+                    else if (selectedPiece.canMove(new int[]{row, col}, false, true) && !Piece.inCheck(selectedPiece.owner, selectedPiece, new int[]{row, col}))
                         System.out.print("(" + board[row][col] + ")");
                     else
                         System.out.print(" " + board[row][col] + " ");

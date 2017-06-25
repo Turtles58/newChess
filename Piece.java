@@ -10,7 +10,7 @@ public abstract class Piece
     //public static String[] unicodes = {"\u2656", "\u2658", "\u2657", "\u2655", "\u2654", "\u2659",/*//*/ "\u265C", "\u265E", "\u265D", "\u265B", "\u265A", "\u265F"}; //white rook knight bishop queen king pawn black rook knight bishop king queen pawn
     public static boolean[] won = {true, false};
     public static boolean[] castlePoss = {true, true, /*//*/ true, true}; //white queenside, white kingside, black queenside, black kingside. Stands for Castle possible and stores if you can still castle in this game.
-    public abstract boolean canMove(int[] endpos, boolean print, boolean check);
+    public abstract boolean canMove(int[] endpos, boolean print, boolean check); //If it's checking if a someone is in check, it shouldn't check to see if moving to take the king would put the player who is checking the other player in check. 
     public abstract String name();
     public abstract String unicode();
     public abstract boolean movePossible();
@@ -130,7 +130,7 @@ public abstract class Piece
             {
                 for(int i = 16; i < pieces.length; i++)
                 {
-                    if (pieces[i].canMove(pieces[7].pos, false))
+                    if (pieces[i].canMove(pieces[7].pos, false, false))
                         toReturn = true;
                 }
             }
@@ -138,7 +138,7 @@ public abstract class Piece
             {
                 for(int i = 0; i < 16; i++)
                 {
-                    if(pieces[i].canMove(pieces[23].pos, false))
+                    if(pieces[i].canMove(pieces[23].pos, false, false))
                         toReturn = true;
                 }
             }
@@ -250,7 +250,7 @@ public abstract class Piece
                         }
                         // if (!inCheck(player, selectedPiece, new int[]{r, c}))                            
                         //{
-                            if (selectedPiece.canMove(new int[]{r, c}, true))
+                            if (selectedPiece.canMove(new int[]{r, c}, true, true))
                             {
                                 boolean pa = selectedPiece.passant(new int[]{r,c});
                                 boolean ca = selectedPiece.castle(new int[]{r,c});

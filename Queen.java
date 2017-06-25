@@ -138,17 +138,17 @@ public class Queen extends Piece{
     public boolean movePossible(){
         for(int r = -7; r + this.pos[0] <= 7; r++)
                 if(this.pos[0] + r >=0)
-                    if(this.canMove(new int[]{this.pos[0]+ r, this.pos[1]}, false)) return true;
+                    if(this.canMove(new int[]{this.pos[0]+ r, this.pos[1]}, false, true)) return true;
         for(int c = -7; c + this.pos[1] <= 7; c++)
                 if(this.pos[1] + c >=0)
-                    if(this.canMove(new int[]{this.pos[0], this.pos[1]+c}, false)) return true;
+                    if(this.canMove(new int[]{this.pos[0], this.pos[1]+c}, false, true)) return true;
             
         for(int i = -7; i+this.pos[0] <=7 && i + this.pos[1] <=7; i++)
             if(pos[0] + i >=0 && pos[1] + i >= 0)
-                if(this.canMove(new int[]{this.pos[0] +i, this.pos[1] +i}, false)) return true;
+                if(this.canMove(new int[]{this.pos[0] +i, this.pos[1] +i}, false, true)) return true;
         for(int i = -7; i+this.pos[0] <=7 &&  this.pos[1]-i >=-7; i++)
             if(pos[0] + i >=0 && pos[1] - i >= 0)
-                if(this.canMove(new int[]{this.pos[0] +i, this.pos[1] -i}, false)) return true;
+                if(this.canMove(new int[]{this.pos[0] +i, this.pos[1] -i}, false, true)) return true;
         return false; 
     }
 }

@@ -31,8 +31,8 @@ public class King extends Piece{
         for(int r = -1; r <2; r++)
             for(int c = -1; c<2; c++){
                 if(r + this.pos[0] >= 0 && r + this.pos[0] <= 7 && c + this.pos[1] >=0 && c + this.pos[0] <=7)
-                    if(this.canMove(new int[]{this.pos[0] +r, this.pos[1] +c}, false)) return true;
+                    if(this.canMove(new int[]{this.pos[0] +r, this.pos[1] +c}, false, true)) return true;
             }
-             return this.canMove(new int[]{this.pos[0], this.pos[1]-2}, false) || this.canMove(new int[]{this.pos[0], this.pos[1] +2}, false) // Checks if the piece can castle. 
+             return this.canMove(new int[]{this.pos[0], this.pos[1]-2}, false, true) || this.canMove(new int[]{this.pos[0], this.pos[1] +2}, false, true); // Checks if the piece can castle. 
     }
 }

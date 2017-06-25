@@ -117,7 +117,7 @@ public class Pawn extends Piece{
         return "\u265F";
     }
     public boolean movePossible(){
-        return this.canMove(new int[]{this.pos[0]+2, this.pos[1]}, false) || this.canMove(new int[]{this.pos[0]+1, this.pos[1]}, false) || this.canMove(new int[]{this.pos[0]+1, this.pos[1] +1}, false) || this.canMove(new int[]{this.pos[0]+1, this.pos[1] -1}, false) ||
-        this.canMove(new int[]{this.pos[0]-2, this.pos[1]}, false) || this.canMove(new int[]{this.pos[0]-1, this.pos[1]}, false) || this.canMove(new int[]{this.pos[0]-1, this.pos[1] +1}, false) || this.canMove(new int[]{this.pos[0]-1, this.pos[1] -1}, false);
+        return this.canMove(new int[]{this.pos[0]+2, this.pos[1]}, false, true) || this.canMove(new int[]{this.pos[0]+1, this.pos[1]}, false, true) || this.canMove(new int[]{this.pos[0]+1, this.pos[1] +1}, false, true) || this.canMove(new int[]{this.pos[0]+1, this.pos[1] -1}, false, true) ||
+        this.canMove(new int[]{this.pos[0]-2, this.pos[1]}, false, true) || this.canMove(new int[]{this.pos[0]-1, this.pos[1]}, false, true) || this.canMove(new int[]{this.pos[0]-1, this.pos[1] +1}, false, true) || this.canMove(new int[]{this.pos[0]-1, this.pos[1] -1}, false, true);
     }
 }
