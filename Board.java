@@ -220,8 +220,17 @@ public class Board
         }
         public static void printRow(int row)
         {
-            for(int col = 0; col < board[0].length; col++)
-                System.out.print(col+1 +  board[row][col] + " ");
+            for(int col = 0; col < board[0].length; col++){
+                System.out.print(col+1 + board[row][col] + " ");
+            }
+            System.out.println();
+        }
+        public static void printRow(int row, Piece selectedPiece)
+        {
+            for(int col = 0; col < board[0].length; col++){
+                if(selectedPiece.canMove(new int[]{row, col}, false, true)) System.out.print("(" + (col+1) + board[row][col] + ")");
+                else System.out.print( " " + (col+1) +board[row][col] + " ");
+            }
             System.out.println();
         }
     }

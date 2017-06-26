@@ -239,7 +239,7 @@ public abstract class Piece
                             catch(java.util.InputMismatchException e){ r= -1;}
                             input.nextLine();
                         }
-                        Board.printRow(r);
+                        Board.printRow(r, selectedPiece);
                         c = -1;
                         while (c < 0 || c > 7)
                         {
